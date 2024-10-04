@@ -1,1 +1,34 @@
+#load the libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score, precision_score, recall_score, f1_score, roc_curve, roc_auc_score
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
+#Data Loading
+
+#define the local file path
+file_path = "\processed_data_with_random_study_hours.csv"
+
+# Read the uploaded file into a df_initialFrame
+data = pd.read_csv(file_path)
+
+# Display the first few rows of the df_initialFrame
+print(data.shape)
+print(data.head())
+
+
+# Descriptive Statistics:Vizualize the data distribution and statistics
+
+# Descriptive Statistics
+numerical_stats = data.describe()
+categorical_stats = data.describe(include=['object'])
+
+# Display Descriptive Statistics
+print("Numerical Statistics:")
+print(numerical_stats)
+print("\nCategorical Statistics:")
+print(categorical_stats)
